@@ -1,0 +1,201 @@
+#!/usr/bin/python3
+#
+
+#  Copyright (C) 2014-2015  Rafael Senties Martinelli 
+#
+#  This program is free software; you can redistribute it and/or modify
+#   it under the terms of the GNU General Public License 3 as published by
+#   the Free Software Foundation.
+#
+#  This program is distributed in the hope that it will be useful,
+#   but WITHOUT ANY WARRANTY; without even the implied warranty of
+#   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#   GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+#   along with this program; if not, write to the Free Software Foundation,
+#   Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301  USA.
+
+"""
+
+    This is a python test file to check the perfomance of python methods.
+    It helps to find the best performances for the program code.
+
+"""
+
+
+import time
+from unicodedata import normalize
+import re
+from array import array
+
+"""
+
+    Import a large list of tests (like 300Mb)
+
+
+"""
+PATH='/home/rsm/programs/7zrecover/Extra/tests'
+
+if 1==0:
+    start=time.time()
+    with open(PATH, encoding='utf-8', mode='rt') as f:
+        tests_list=f.read()
+    print('File reading done in {} seconds'.format(time.time() - start))
+
+    start=time.time()
+    tests_list=[line.strip() for line in normalize('NFC',tests_list).splitlines()]
+    print('String formalization, and list strip done in {} seconds'.format(time.time()-start))
+    total_of_strings=len(tests_list)
+    print('{} strings'.format(total_of_strings))
+
+
+
+    print('Testing the performance of the "remove combinations" function..')
+    """
+    
+        More at: http://stackoverflow.com/questions/33634130/why-is-any-running-slower-than-using-loops
+
+    """
+
+    unallowed_combinations=['ab','ac','ad','ae','af','ag','ah','ai','af','ax','ae','rt','rz','bt','du','iz','ip','uy','io','ik','il','iw','ww','wp']
+    #unallowed_combinations = set(unallowed_combinations) # not really necesary because I'm only searching to compare.
+
+
+    def is_valid(string):
+        for combination in unallowed_combinations:
+            if combination in string:
+                return False
+        return True
+    valid=0
+    start=time.time()
+    for string in tests_list:
+        if is_valid(string):
+            valid+=1
+    print('\nTEST 1 ended in {} seconds'.format(time.time()-start))  
+    print('valid percent: {}%\n'.format((valid+0.0)/total_of_strings*100))
+
+
+    valid=0
+    start=time.time()
+    for string in tests_list:
+        add=True
+        for combination in unallowed_combinations:
+            if combination in string:
+                add=False
+                break
+        if add:
+            valid+=1
+    print('\nTEST 1.5 ended in {} seconds'.format(time.time()-start))  
+    print('valid percent: {}%\n'.format((valid+0.0)/total_of_strings*100))
+
+
+    valid=0
+    start=time.time()
+    for string in tests_list:
+        if not any(combination in string for combination in unallowed_combinations):
+            valid+=1
+    print('\nTEST 2 ended in {} seconds'.format(time.time()-start))  
+    print('valid percent: {}%\n'.format((valid+0.0)/total_of_strings*100))
+
+
+    valid=0
+    start=time.time()
+    for string in tests_list:
+        if not any([combination in string for combination in unallowed_combinations]):
+            valid+=1
+    print('\nTEST 2.2 ended in {} seconds'.format(time.time()-start))  
+    print('valid percent: {}%\n'.format((valid+0.0)/total_of_strings*100))
+
+
+    valid_re = re.compile('|'.join(map(re.escape, unallowed_combinations)))
+    valid=0
+    start=time.time()
+    for string in tests_list:
+        if not valid_re.search(string):
+            valid+=1
+            
+    print('\nTEST 3 ended in {} seconds'.format(time.time()-start))  
+    print('valid percent: {}%\n'.format((valid+0.0)/total_of_strings*100))
+    
+    
+            
+    """
+        Benchmarks:
+        
+            TEST 1 ended in 45.58239722251892 seconds
+            valid percent: 78.01242792480956%
+
+
+            TEST 1.5 ended in 73.98874521255493 seconds
+            valid percent: 78.01242792480956%
+
+
+            TEST 2 ended in 89.43809866905212 seconds
+            valid percent: 78.01242792480956%
+
+
+            TEST 2.2 ended in 91.03845524787903 seconds
+            valid percent: 78.01242792480956%
+
+
+            TEST 3 ended in 24.790600776672363 seconds
+            valid percent: 78.01242792480956%
+    """    
+    
+
+if 1==0:
+    """
+
+        Adding strings
+        
+    """
+
+    LOOPS=10000000
+
+    start=time.time()
+    a='1'
+    for i in range(LOOPS):
+        a+='1'
+    print('\nTEST 1 ended in {} seconds'.format(time.time()-start))  
+
+
+    start=time.time()
+    a='1'
+    for i in range(LOOPS):
+        a=a+'1'
+    print('\nTEST 1.1 ended in {} seconds'.format(time.time()-start))  
+
+
+    LIST=['1']*(LOOPS+1)
+
+    
+    start=time.time()
+    a=''.join(LIST)
+    print('\nTEST 2 ended in {} seconds'.format(time.time()-start))
+
+
+    start=time.time()
+    a=''.join(['1']*(LOOPS+1))
+    print('\nTEST 2-0 ended in {} seconds'.format(time.time()-start))
+
+
+
+    """
+        TEST 1 ended in 1.6542284488677979 seconds
+
+        TEST 1.1 ended in 1.7749552726745605 seconds
+
+        TEST 2 ended in 0.10202264785766602 seconds
+
+        TEST 2-0 ended in 0.16545844078063965 seconds
+
+    """
+
+
+
+
+
+
+
+
