@@ -4,7 +4,7 @@ WGen (2018) is based in 7zRecover (2014-2016). This project was uploaded as a ba
 
 ## So what is WgGen?
 
-It is a Text Graphical software that allows the dynamic generation of words and their use with external commands. In more simple words, it can allow to genereate passwords and create brute force attacks.
+It is a Text Graphical software that allows the dynamic generation of words and their use with external commands.
 
 [Screenshoot to be added]
 
@@ -13,7 +13,7 @@ It is a Text Graphical software that allows the dynamic generation of words and 
 * It allows to highly customize the words generation.
 * For boosting the performance,there are many intesting concepts in the structure of the software:
     * The generation is splitted in chunks and executed in multi-processing tasks.
-    * The code for generating the words is dinamycally generated. In other words, WGen generates the minimal code customized for your need and it executes it.
+    * The code for generating the words dynamically generated. WGen generates the minimal for your need and it executes it.
 * It allows to display in realtime the progress of the execution thanks to a web socket based communication with the multiprocessing tasks.
 
 
