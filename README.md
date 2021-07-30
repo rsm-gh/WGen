@@ -8,7 +8,7 @@ It is a Text Graphical software that allows the dynamic generation of words and 
 
 [Screenshoot to be added]
 
-## How this software is different than others?
+## Why is this software different than others?
 
 * It allows to highly customize the words generation.
 * For boosting the performance,there are many intesting concepts in the structure of the software:
