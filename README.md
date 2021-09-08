@@ -11,9 +11,9 @@ It is a Text Graphical software that allows the dynamic generation of words and 
 ## Why is this software different than others?
 
 * It allows to highly customize the words generation.
-* For boosting the performance,there are many intesting concepts in the structure of the software:
+* For boosting the performance, there are many intesting concepts in the structure of the software:
     * The generation is splitted in chunks and executed in multi-processing tasks.
-    * The code for generating the words dynamically generated. WGen generates the minimal for your need and it executes it.
+    * The code for generating the words is dynamically generated. It cretes the minimal python code for the need and it executes it.
 * It allows to display in realtime the progress of the execution thanks to a web socket based communication with the multiprocessing tasks.
 
 
