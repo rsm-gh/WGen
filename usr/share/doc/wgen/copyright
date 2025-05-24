@@ -2,8 +2,11 @@ Format: http://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
 Upstream-Name: gwen
 Source: Interpreted Language
 
-Files: usr/share/wgen/CCParser.py
-Copyright: 2014-2024 Rafael Senties Martinelli
+Files:
+    install.sh
+    uninstall.sh
+    usr/share/wgen/CCParser.py
+Copyright: 2014-2025 Rafael Senties Martinelli
 License: MIT
 
 Files: *
