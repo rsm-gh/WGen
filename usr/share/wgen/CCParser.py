@@ -30,7 +30,7 @@ class CCParser(object):
     def __init__(self, ini_path='', section='', debug=False):
         """
             To init CCParser you can enter a path
-            and a section. If you doesn't know them yet
+            and a section. If you doesn't know them yet,
             you can leave them empty.
             
             If debug is set to True, all the exceptions
@@ -77,7 +77,7 @@ CCParser instance:
  
     def check_value(self,value):
         """
-            return False if the value don't exists,
+            return False if the value don't exist,
             return True if the value exists
         """
         if not os.path.exists(self.ini_path):
@@ -102,7 +102,7 @@ CCParser instance:
         """
             If the value exists, return the boolean
             corresponding to the string. If it does
-            not exists, or the value can not be converted
+            not exist, or the value can not be converted
             to a boolean, return the default boolean.
         """
         
@@ -121,7 +121,7 @@ CCParser instance:
         """
             If the value exists, return the float
             corresponding to the string. If it does
-            not exists, or the value can not be converted
+            not exist, or the value can not be converted
             to a float, return the default float.
         """
         if self.check_value(value):
@@ -141,8 +141,8 @@ CCParser instance:
         """
             If the value exists, return the integer
             corresponding to the string. If it does
-            not exists, or the value can not be converted
-            to a integer, return the default integer.
+            not exist, or the value can not be converted
+            to an integer, return the default integer.
         """
         if self.check_value(value):
             val=self._config.get(self._section,value)

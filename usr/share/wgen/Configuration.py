@@ -30,8 +30,8 @@ class Configuration(object):
         self._ccp=CCParser(paths.configuration,'7zrecover_configuration')
         self._password_length_end=3             
 
-        self.set_password_length_start(self._ccp.get_int_defval('StartPassLenght', 2))
-        self.set_password_length_end(self._ccp.get_int_defval('PasswordLenght', 3))
+        self.set_password_length_start(self._ccp.get_int_defval('StartPassLength', 2))
+        self.set_password_length_end(self._ccp.get_int_defval('PasswordLength', 3))
         self.set_number_of_process(self._ccp.get_int_defval('MaximumNumberOfProcess', 1))
         
         self._ccp.set_default_bool(True)
@@ -65,22 +65,22 @@ class Configuration(object):
         if integer > 1:
             
             self._password_length_start=integer
-            self._ccp.write('StartPassLenght',str(integer))
+            self._ccp.write('StartPassLength',str(integer))
             
             if integer > self._password_length_end:
                 self._password_length_end=integer
-                self._ccp.write('PasswordLenght',str(integer))
+                self._ccp.write('PasswordLength',str(integer))
         else:
             self._password_length_start=2
             
     def set_password_length_end(self, integer):
         if integer > 1:
             self._password_length_end=integer
-            self._ccp.write('PasswordLenght',str(integer))
+            self._ccp.write('PasswordLength',str(integer))
                     
             if integer < self._password_length_start:
                 self._password_length_start=integer
-                self._ccp.write('StartPassLenght',str(integer))
+                self._ccp.write('StartPassLength',str(integer))
         else:
             self._password_length_end=3
                 

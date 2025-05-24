@@ -2,7 +2,7 @@
 
 WGen (2018) is based in 7zRecover (2014-2016). This project was uploaded as a backup. Sadly I do not remember its status, but it is probably unstable and with the need of alot of coding. 
 
-Also, **I started this software for learning to code in 2014**, and I may still pushing some commits,
+Also, **I started this software for learning to code in 2014**, and I may still push some commits,
 to keep it usable, but **I do not consider this a real project**.
 
 **If one day I do need to use a software like this, I'd code it in Rust and with a different architecture.**
@@ -13,12 +13,12 @@ It is a Text Graphical software that allows the dynamic generation of words and 
 
 [Screenshoot to be added]
 
-## Why is this software different than others?
+## Why is this software different from others?
 
-* It allows to highly customize the words generation.
-* For boosting the performance, there are many intesting concepts in the structure of the software:
-    * The generation is splitted in chunks and executed in multi-processing tasks.
-    * The code for generating the words is dynamically generated. It cretes the minimal python code for the need and it executes it.
+* It allows to highly customize the words' generation.
+* For boosting the performance, there are many interesting concepts in the structure of the software:
+    * The generation is split in chunks and executed in multiprocessing tasks.
+    * The code for generating the words is dynamically generated. It creates the minimal python code for the need and it executes it.
 * It allows to display in realtime the progress of the execution thanks to a web socket based communication with the multiprocessing tasks.
 
 

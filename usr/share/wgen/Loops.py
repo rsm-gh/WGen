@@ -19,7 +19,7 @@
 
 """
     - I tried to use regex for the "remove tests" option, but it seemed to fail. Sometimes it was returning true when
-      the test didn't existed.  More information at the doc: Regex test
+      the test didn't exist.  More information at the doc: Regex test
 """
 
 import os
@@ -54,7 +54,7 @@ REMOVE_TESTS='''
 {tab}    continue\n
 '''
 
-# Matching with re would be so much faster, saddly It couln't make it work
+# Matching with re would be so much faster, sadly It couldn't make it work
 # for exact matches
 #
 #REMOVE_TESTS='''
@@ -93,7 +93,7 @@ def invert_bool(boolean):
     
     
 @W_try_or_log
-def create_buteforce_attack(self, loops_number, starting_word, configuration, DEBUG):
+def create_bruteforce_attack(self, loops_number, starting_word, configuration, DEBUG):
 
     source ='''
 def __bruteforce_attack_template__(self):
@@ -295,7 +295,7 @@ class Loop(object):
         self._loop_ended=False # used to avoid sending multiple 100 code messages
         
         """
-            Initialization of the buteforce_attac method
+            Initialization of the bruteforce_attack method
         """
         if self._starting_word==None:
             self._write_path=PATHS.output_subfolder.format(combinations_number)
@@ -313,8 +313,8 @@ class Loop(object):
              This block of the code removes impossible tests of the _remove_tests_tuple.
              
               It will remove words that:
-                - Do not start with the startin_word
-                - Exced the maximum number of characters, based in the combinations number and the longuest password string
+                - Do not start with the starting_word
+                - Exceed the maximum number of characters, based in the combinations number and the longest password string
 
                 To do:
                     (#100) remove words that are too small
@@ -346,15 +346,15 @@ class Loop(object):
             #self.write_errors(str(self._remove_tests_tuple))
 
         """
-            Creation of the buteforce_attac method and add it to the class
+            Creation of the bruteforce_attack method and add it to the class
         """
-        function = create_buteforce_attack(self, combinations_number, self._starting_word, configuration, DEBUG)
+        function = create_bruteforce_attack(self, combinations_number, self._starting_word, configuration, DEBUG)
         self.bruteforce_attack = function.__get__(self, type(self))
 
 
     def SEND_MSG(self, code, stage='00000', substage='00000', count='0000000000'):
         #
-        # Format the message to 23 bytes (code, must be a 3 substages)
+        # Format the message to 23 bytes (code, must be 3 substages)
         #
         stage=str(stage)
         substage=str(substage)
@@ -377,11 +377,11 @@ class Loop(object):
         # make the connection and send the message
         #
         try:
-            clientsocket=socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-            clientsocket.settimeout(1)
-            clientsocket.connect(('localhost', self._port))
-            clientsocket.send(bytes_data)
-            clientsocket.close()
+            client_socket=socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+            client_socket.settimeout(1)
+            client_socket.connect(('localhost', self._port))
+            client_socket.send(bytes_data)
+            client_socket.close()
         except:
             pass
                 
@@ -407,7 +407,7 @@ class Loop(object):
     def MSG_end_loop(self, next=True):
         self._thread=False
         
-        # this is to be sure that all the stats went sent before exing the loop
+        # this is to be sure that all the stats went sent before quitting the loop
         try:
             self.SEND_MSG(150, self._stage, self._substage, self._count)
         except:

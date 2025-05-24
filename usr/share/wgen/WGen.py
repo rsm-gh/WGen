@@ -22,11 +22,11 @@
     
         The socket connection must be improved....
         What about using pyro again, and generate the loops on live so there be no
-        conection problem? it would sove the problem of "sending back the password"
+        connection problem? it would save the problem of "sending back the password"
                             
                             or
                             
-        + Implement a comunication system to send the password over the 37 bytes command. ?
+        + Implement a communication system to send the password over the 37 bytes command. ?
         + Add the option: "start at"
 
 """
@@ -341,7 +341,7 @@ class Main:
                 break
             except:
                 port+=1
-        self.serversocket.listen(number_of_process+1) # max number of connections, +1 doesn't hurts
+        self.serversocket.listen(number_of_process+1) # max number of connections, +1 doesn't hurt
         Thread(target=self.SOCKET_listener).start()
         #debug('7zserver at'+str(port))
 
@@ -377,7 +377,7 @@ class Main:
 
 
         """
-            Check if all the loops succesfully pinged the server
+            Check if all the loops successfully pinged the server
         """
         for loop in Loops.Queue:
             if not loop:
@@ -763,7 +763,7 @@ class Main:
     def UPDATE_incremental_result(self):
         """
             This method is displayed when the incremental method finishes or it is stopped.
-            It displays the result of the cracking attemp.
+            It displays the result of the cracking attempt.
         """
         
         self.UPDATE_programs_header()
@@ -797,9 +797,9 @@ class Main:
                 # Calculate the statistics
                 #
                 left=total_of_combinations-done
-                racio=self.average_queue.get_average()
+                ratio=self.average_queue.get_average()
                 
-                if racio < 0:
+                if ratio < 0:
                     debug("Negative average")
                     debug(self.average_queue.debug_data())
                 
@@ -809,10 +809,10 @@ class Main:
                 
                 # Format the statistics
                 #
-                if racio < 99:
-                    formatted_racio=str(round(racio, 2))
+                if ratio < 99:
+                    formatted_ratio=str(round(ratio, 2))
                 else:
-                    formatted_racio=format_number_for_tui(racio)
+                    formatted_ratio=format_number_for_tui(ratio)
                 
                 
                 if string_level > 2:
@@ -823,7 +823,7 @@ class Main:
                 if global_percent > 100:
                     time_string="?"
                 else:
-                    time_string=str(timedelta(seconds=left/racio))
+                    time_string=str(timedelta(seconds=left/ratio))
                     
                     # remove miliseconds
                     if '.' in time_string:
@@ -834,7 +834,7 @@ class Main:
                 #
                 self.TUI.insstr(9, 2,TEXT_TOTAL_DONE.format(format_number_for_tui(done), global_percent), curses.color_pair(2))  
                 self.TUI.insstr(10, 2,TEXT_COMBINING_AND_STAGE.format(string_level,string_stage, stages), curses.color_pair(2))
-                self.TUI.insstr(11, 2,TEXT_AVERAGE_OF.format(formatted_racio), curses.color_pair(2))
+                self.TUI.insstr(11, 2,TEXT_AVERAGE_OF.format(formatted_ratio), curses.color_pair(2))
                 self.TUI.insstr(12, 2,TEXT_ESTIMATING_X_TO_FINISH.format(time_string)+self.graphical_dots, curses.color_pair(2))
             
                 # Update the advancement dots
@@ -873,20 +873,20 @@ class Main:
         while True:
             choice=self.TUI.getch()
                     
-            indice, state, _, method = self.main_menu_dict[over]    
+            index, state, _, method = self.main_menu_dict[over]
             if choice==curses.KEY_RIGHT or choice==curses.KEY_LEFT:
                 if choice==curses.KEY_RIGHT:
-                    if indice+1 <= len(self.main_menu_dict)-1:
-                        indice+=1
+                    if index+1 <= len(self.main_menu_dict)-1:
+                        index+=1
                     else:
-                        indice=0
+                        index=0
                 elif choice==curses.KEY_LEFT:
-                    if indice-1 >= 0:
-                        indice-=1
+                    if index-1 >= 0:
+                        index-=1
                     else:
-                        indice=len(self.main_menu_dict)-1
+                        index=len(self.main_menu_dict)-1
                 self.main_menu_dict[over]=modify_tupple(self.main_menu_dict[over], 1, 2)
-                over=list(self.main_menu_dict.keys())[indice]
+                over=list(self.main_menu_dict.keys())[index]
                 self.main_menu_dict[over]=modify_tupple(self.main_menu_dict[over], 1, 3)
             elif choice==10:
                 getattr(self, method)()
@@ -926,7 +926,7 @@ class Main:
             
                 code:stage:substage:count:password
             
-            * When using commands that doens't require stage, substage and count, they are replaced
+            * When using commands that doesn't require stage, substage and count, they are replaced
             by zeros.
             
         """
