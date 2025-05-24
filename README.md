@@ -23,16 +23,16 @@ It is a Text Graphical software that allows the dynamic generation of words and 
 WGen(8)                                             System Manager's Manual                                            WGen(8)
 
 NAME
-        pgen - A tool for generating word lists.
+        WGen - A tool for generating word lists.
 
 DESCRIPTION
-        pgen  -  A  tool  for generating word lists. It loads a list of words or strings, and then the incremental mode starts
+        WGen  -  A  tool  for generating word lists. It loads a list of words or strings, and then the incremental mode starts
        generating the combinations. The objective of this program is to allow the user configure "smart" combinations.
 
        While the program is generating the words, it will display some statistics such as the number of possible combinations,
        the average of combinations/second, and the estimated amount of time.
 
-       Usage: To launch the program, it is only needed to enter "pgen" over a terminal.
+       Usage: To launch the program, it is only needed to enter "wgen" over a terminal.
 
        Using the TUI:
               On  vertical  menus use the Up/Down arrows and over horizontal menus Left/Right arrows to move. The enter key is
@@ -41,7 +41,7 @@ DESCRIPTION
        Lists: The lists of words or strings that the program requests must be a file where each string or word is in a differ‐
               ent  line.  (Any  space  in  the beginning or the end of each line will be removed). When the program asks for a
               list, if the list is in the working directory it is possible to only input the name. An example of a list is  in
-              the folder make-a-test, placed at /usr/share/doc/pgen
+              the folder make-a-test, placed at /usr/share/doc/wgen
 
 IMPORTANT REMARKS
        +  When using the program if any error happens it will be logged under a file called "7zR-DEBUG", created over the cur‐

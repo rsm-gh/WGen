@@ -1,8 +1,8 @@
 Format: http://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
-Upstream-Name: 7zrecover
+Upstream-Name: gwen
 Source: in the deb package.
 
-Files: /usr/share/7zrecover/pdf/*
+Files: /usr/share/wgen/pdf/*
 Copyright:  Copyright (c) 2006-2008, Mathieu Fenniak
             Some contributions copyright (c) 2007, Ashish Kulkarni <kulkarni.ashish@gmail.com>
             Some contributions copyright (c) 2014, Steve Witham <switham_github@mac-guyver.com>
