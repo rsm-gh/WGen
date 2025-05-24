@@ -2,6 +2,11 @@
 
 WGen (2018) is based in 7zRecover (2014-2016). This project was uploaded as a backup. Sadly I do not remember its status, but it is probably unstable and with the need of alot of coding. 
 
+Also, **I started this software for learning to code in 2014**, and I may still pushing some commits,
+to keep it usable, but **I do not consider this a real project**.
+
+**If one day I do need to use a software like this, I'd code it in Rust and with a different architecture.**
+
 ## So what is WGen?
 
 It is a Text Graphical software that allows the dynamic generation of words and their use with external commands.
