@@ -2,10 +2,10 @@
 
 WGen (2018) is based in 7zRecover (2014-2016). This project was uploaded as a backup and I do not remember its status, but it is probably unstable. 
 
-Also, **I started this software for learning to code in 2014**, and I may still push some commits,
-to keep it usable, but **I do not consider this a real project**.
+Also, **I started this software in 2014 for learning to code**, and I may still push some commits,
+to keep it usable, but **I do not consider it a real project**.
 
-**If one day I need to use a software like this, I will code it in Rust and with a different architecture.**
+**If one day I want to make a similar software, I will code it in Rust and with a different architecture.**
 
 ## So what is WGen?
 
